@@ -88,7 +88,12 @@ GPIO.add_event_detect(20, GPIO.FALLING, callback=showstats, bouncetime=1000)
 def Shutdown(channel):
 
     print("Shutting Down")
-
+    disp.fill(0)
+    disp.show()
+    draw.text((x, top + 25), "SHUTDOWN !!", font=font, fill=255)
+    disp.image(image)
+    disp.show()
+	
     time.sleep(5)
 
     os.system("sudo shutdown -h now")
