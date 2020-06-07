@@ -1,0 +1,14 @@
+//setelah connect wifi
+//pada terminal
+
+sudo apt-get update
+sudo apt-get upgrade
+
+//seletah update instal git
+
+sudo apt install git
+
+//get file from git
+
+cd /home/pi
+git clone https://github.com/makerdiaryid/RPIZEROW-POCKET-WEBSERVER-SAMBA

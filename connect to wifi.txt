@@ -1,0 +1,5 @@
+//masukan command
+
+sudo raspi-config
+
+//sett wifi

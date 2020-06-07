@@ -1,0 +1,38 @@
+//instal python
+
+sudo apt-get install python3-pip
+sudo apt-get install python3-pil
+
+//setelah selesai intal oled lib
+
+sudo pip3 install adafruit-circuitpython-ssd1306
+
+//setelah itu aktivkan i2c pada raspberry pi
+
+sudo pip3 install --upgrade setuptools "atau" sudo apt-get install python3-pip
+sudo apt-get install -y python-smbus
+sudo apt-get install -y i2c-tools
+sudo raspi-config
+
+//akan muncul gui menu pilih "interfacing option" --> "I2C" --> "YES" --> finish
+//lalu shutdown raspberry pi
+
+//konekan oled sesuai pin I2C raspberry pi zero
+//setelah itu nyalakan kembali
+//cek apakah I2C  sudah terdeteksi dengan 
+
+sudo i2cdetect -y 1
+
+//bila ada "3c" berarti sdh terdeteksi
+//copy file stats.py ke "home/pi/"
+//untuk menjalankan python script (untuk oled dan shutdown) run file yang sdh didownnload dengan command
+
+sudo python3 home/pi/finalscript.py
+
+//untuk menjalankan perintah setiap kali boot buka rc.local
+
+sudo nano /etc/rc.local
+
+//tambahkan "sudo python3 /home/pi/finalscript.py &" sebelum baris "exit 0"
+
+

@@ -1,0 +1,54 @@
+//update dan upgrade(upgrade pertama bisasanya mmg lama)
+
+sudo apt-get update
+sudo apt-get upgrade
+
+//install apache
+
+sudo apt-get install apache2 -y
+
+//setelah itu intsall php
+
+sudo apt-get install php -y
+sudo service apache2 restart
+
+//folder webservernya ada di /var/www/html
+//install mysql
+
+sudo apt-get install mysql-server php-mysql -y --> obselete
+sudo apt-get install mariadb-server.10.0 php-mysql -y
+
+//saat setup mysql akan ditanya soal password silahkan di isi sesuai keinginan
+//setelah selesai selanjutnya instal phpmyadmin
+
+sudo apt install phpmyadmin
+
+//pada saat setup silahkan pilih "apache2"
+//waktu ditanya "...with dbconfig-common?" pilih yes
+//silahkan isi password PHPMyAdmin yg sesuai
+//setelah selesai instalasi php my admin selanjutnya buat user buat akses php my admin
+
+sudo mysql -u root -p
+
+//lalu masukan comman (jgn lupa mengganti 'username' menjadi username yg kita inginkan, dan 'password' menjadi password yg kita mau)
+
+GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost' IDENTIFIED BY 'password' WITH GRANT OPTION;
+
+//setelah itu keluar dengan command
+
+quit
+
+//setelah itu lakukan configurasi phpmyadmin dengan 
+
+sudo nano /etc/apache2/apache2.conf
+
+//pada editor text nano dia akhir configurasi tambahkan line
+
+Include /etc/phpmyadmin/apache.conf
+
+// untuk save CTRL + X lalu Y lalu ENTER.
+//lalu restart apache dengan command
+
+sudo service apache2 restart
+
+//sekarang db bisa di akses di IP/phpmyadmin

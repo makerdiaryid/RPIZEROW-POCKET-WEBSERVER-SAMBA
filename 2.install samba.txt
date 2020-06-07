@@ -1,0 +1,42 @@
+//buka terminal 
+//masukan perintah buat update dan upgrade 
+
+sudo apt-get update
+sudo apt-get upgrade
+
+//install samba
+
+sudo apt-get install samba samba-common-bin
+
+//buat folder yang akan di jadikan folder share file
+
+sudo mkdir -m 1777 /share
+
+//buka file config samba dengan leafpad 
+
+sudo leafpad /etc/samba/smb.conf
+
+//tambahkan text berikut di akhir config
+
+[share]
+Comment = Pi shared folder
+Path = /share
+Browseable = yes
+Writeable = Yes
+only guest = no
+create mask = 0777
+directory mask = 0777
+Public = yes
+Guest ok = yes
+
+//buat user samba dengan nama "pi" dan masukan password
+
+sudo smbpasswd -a pi
+
+//setelah semua setting beres..reatart samba dengan perintah
+
+sudo /etc/init.d/samba restart
+
+//kalau commant di atas gagal coba
+
+sudo /etc/init.d/smbd restart
