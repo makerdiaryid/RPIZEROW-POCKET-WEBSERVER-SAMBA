@@ -73,10 +73,10 @@ def showstats(channel):
     draw.text((x, top + 25), Disk, font=font, fill=255)
 
     disp.image(image)
-	disp.show()
-	time.sleep(10000)
-	disp.fill(0)
-	disp.show()
+    disp.show()
+    time.sleep(10)
+    disp.fill(0)
+    disp.show()
     
 	
 	
