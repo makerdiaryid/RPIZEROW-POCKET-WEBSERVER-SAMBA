@@ -1,25 +1,32 @@
 //update dan upgrade(upgrade pertama bisasanya mmg lama)
+\\update dan upgrade(first upgradetake long time)
 
 sudo apt-get update
 sudo apt-get upgrade
 
 //install apache
+\\install apache
 
 sudo apt-get install apache2 -y
 
-//setelah itu intsall php
+//setelah itu install php
+//after that install php
 
 sudo apt-get install php -y
 sudo service apache2 restart
 
 //folder webservernya ada di /var/www/html
 //install mysql
+\\the webserver folder /var/www/html
+\\instal mysql
 
 sudo apt-get install mysql-server php-mysql -y --> obselete
 sudo apt-get install mariadb-server.10.0 php-mysql -y
 
 //saat setup mysql akan ditanya soal password silahkan di isi sesuai keinginan
 //setelah selesai selanjutnya instal phpmyadmin
+\\on mysql setup you will be input password as you wish(don forget it)
+\\after thats instal phpmyadmin
 
 sudo apt install phpmyadmin
 
@@ -27,28 +34,39 @@ sudo apt install phpmyadmin
 //waktu ditanya "...with dbconfig-common?" pilih yes
 //silahkan isi password PHPMyAdmin yg sesuai
 //setelah selesai instalasi php my admin selanjutnya buat user buat akses php my admin
+\\on the setup process chone "apache2"
+\\when ask "...with dbconfig-common?" choose yes
+\\input phpmyadmin password as you wish
+\\after that you need to create user to access phpmyadmin
 
 sudo mysql -u root -p
 
 //lalu masukan comman (jgn lupa mengganti 'username' menjadi username yg kita inginkan, dan 'password' menjadi password yg kita mau)
+\\input this query, change 'username' and 'password' as you want
 
 GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost' IDENTIFIED BY 'password' WITH GRANT OPTION;
 
 //setelah itu keluar dengan command
+\\after that just quit with this command
 
 quit
 
-//setelah itu lakukan configurasi phpmyadmin dengan 
+//setelah itu lakukan configurasi phpmyadmin dengan
+\\after that do phpmyadmin configuration with
 
 sudo nano /etc/apache2/apache2.conf
 
 //pada editor text nano dia akhir configurasi tambahkan line
+\\at the line belowto the apache2.conf
 
 Include /etc/phpmyadmin/apache.conf
 
 // untuk save CTRL + X lalu Y lalu ENTER.
 //lalu restart apache dengan command
+\\to save the file 'CTRL + X' and 'Y' and ENTER.
+\\and restart the apache2 service
 
 sudo service apache2 restart
 
 //sekarang db bisa di akses di IP/phpmyadmin
+\\now its done

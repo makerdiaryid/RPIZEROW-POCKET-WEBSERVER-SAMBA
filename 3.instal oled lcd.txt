@@ -1,13 +1,16 @@
 //instal python
+\\install python
 
 sudo apt-get install python3-pip
 sudo apt-get install python3-pil
 
 //setelah selesai intal oled lib
+\\after its done install oled lib
 
 sudo pip3 install adafruit-circuitpython-ssd1306
 
 //setelah itu aktivkan i2c pada raspberry pi
+\\next stepp ativate i2c on raspberry pi os
 
 sudo pip3 install --upgrade setuptools "atau" sudo apt-get install python3-pip
 sudo apt-get install -y python-smbus
@@ -16,23 +19,34 @@ sudo raspi-config
 
 //akan muncul gui menu pilih "interfacing option" --> "I2C" --> "YES" --> finish
 //lalu shutdown raspberry pi
+\\the gui menu will appear choose  "interfacing option" --> "I2C" --> "YES" --> finish
+\turn off the raspberry
 
 //konekan oled sesuai pin I2C raspberry pi zero
 //setelah itu nyalakan kembali
 //cek apakah I2C  sudah terdeteksi dengan 
+\\connect the the oled pin to raspberry i2c pin
+\\after that turn it on
+\\check the i2c con with
+ 
 
 sudo i2cdetect -y 1
 
 //bila ada "3c" berarti sdh terdeteksi
-//copy file stats.py ke "home/pi/"
+//copy file finalscript.py ke "home/pi/"
 //untuk menjalankan python script (untuk oled dan shutdown) run file yang sdh didownnload dengan command
+\\if success there will be "3c"
+\\copy the file finalscript.py that you download from github to "home/pi/"
+\\to run the python script type this coomand
 
 sudo python3 home/pi/finalscript.py
 
 //untuk menjalankan perintah setiap kali boot buka rc.local
+\\to run it on boot, open rc.local
 
 sudo nano /etc/rc.local
 
-//tambahkan "sudo python3 /home/pi/finalscript.py &" sebelum baris "exit 0"
+//tambahkan "sudo python3 /home/pi/RPIZEROW-POCKET-WEBSERVER-SAMBA/finalscript.py &" sebelum baris "exit 0"
+\\add "sudo python3 /home/pi/RPIZEROW-POCKET-WEBSERVER-SAMBA/finalscript.py &" before "exit 0"
 
 
