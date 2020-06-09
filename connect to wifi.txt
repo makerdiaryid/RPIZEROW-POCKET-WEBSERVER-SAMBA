@@ -1,4 +1,5 @@
 //masukan command
+\\on terminal input command
 
 sudo raspi-config
 
